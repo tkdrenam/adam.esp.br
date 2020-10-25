@@ -32,7 +32,7 @@ collections:
                 widget: 'text'
   - name: 'blog'
     label: 'Posts'
-    folder: 'posts'
+    folder: 'content/posts'
     create: true
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
     fields:
