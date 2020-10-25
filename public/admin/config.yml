@@ -1,0 +1,57 @@
+backend:
+  name: git-gateway
+  branch: master
+media_folder: public/img
+public_folder: img
+collections:
+  - name: 'pages'
+    label: 'Páginas'
+    files:
+      - name: 'home'
+        label: 'Principal'
+        file: 'content/home.md'
+        fields:
+          - name: 'title'
+            label: 'Título'
+            widget: 'string'
+          - name: 'date'
+            label: 'Publish Date'
+            widget: 'datetime'
+          - name: 'body'
+            label: 'Body'
+            widget: 'markdown'
+          - name: 'cats'
+            label: 'Cats'
+            widget: list
+            fields:
+              - name: 'name'
+                label: 'Name'
+                widget: 'string'
+              - name: 'description'
+                label: 'Description'
+                widget: 'text'
+  - name: 'blog'
+    label: 'Posts'
+    folder: 'posts'
+    create: true
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    fields:
+      - name: 'title'
+        label: 'Title'
+        widget: 'string'
+      - name: 'description'
+        label: 'Description'
+        widget: 'string'
+      - name: 'download'
+        label: 'Download'
+        widget: 'string'
+      - name: 'thumbnail'
+        label: 'Featured Image'
+        widget: 'image'
+      - name: 'author'
+        label: 'Author'
+        widget: 'string'
+        default: 'Admin'
+      - name: 'body'
+        label: 'Body'
+        widget: 'markdown'
