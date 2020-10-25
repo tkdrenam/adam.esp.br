@@ -39,35 +39,35 @@ export const { styled, css } = createStyled({
     xl: (rule) => `@media (min-width: 1280px) { ${rule} }`,
   },
   utils: {
-    m: (config) => (value: keyof typeof theme['space'] | (string & {})) => ({
-      marginTop: value,
-      marginBottom: value,
-      marginLeft: value,
-      marginRight: value,
+    m: () => (value: keyof typeof theme['space'] | (string & {})) => ({
+      marginTop: theme.space[value],
+      marginBottom: theme.space[value],
+      marginLeft: theme.space[value],
+      marginRight: theme.space[value],
     }),
-    mt: (config) => (value: keyof typeof theme['space'] | (string & {})) => ({
-      marginTop: value,
+    mt: () => (value: keyof typeof theme['space'] | (string & {})) => ({
+      marginTop: theme.space[value],
     }),
-    mr: (config) => (value: keyof typeof theme['space'] | (string & {})) => ({
-      marginRight: value,
+    mr: () => (value: keyof typeof theme['space'] | (string & {})) => ({
+      marginRight: theme.space[value],
     }),
-    mb: (config) => (value: keyof typeof theme['space'] | (string & {})) => ({
-      marginBottom: value,
+    mb: () => (value: keyof typeof theme['space'] | (string & {})) => ({
+      marginBottom: theme.space[value],
     }),
-    ml: (config) => (value: keyof typeof theme['space'] | (string & {})) => ({
-      marginLeft: value,
+    ml: () => (value: keyof typeof theme['space'] | (string & {})) => ({
+      marginLeft: theme.space[value],
     }),
-    mx: (config) => (value: keyof typeof theme['space'] | (string & {})) => ({
-      marginLeft: value,
-      marginRight: value,
+    mx: () => (value: keyof typeof theme['space'] | (string & {})) => ({
+      marginLeft: theme.space[value],
+      marginRight: theme.space[value],
     }),
-    my: (config) => (value: keyof typeof theme['space'] | (string & {})) => ({
-      marginTop: value,
-      marginBottom: value,
+    my: () => (value: keyof typeof theme['space'] | (string & {})) => ({
+      marginTop: theme.space[value],
+      marginBottom: theme.space[value],
     }),
-    size: (config) => (value: keyof typeof theme['space'] | (string & {})) => ({
-      width: value,
-      height: value,
+    size: () => (value: keyof typeof theme['space'] | (string & {})) => ({
+      width: theme.space[value],
+      height: theme.space[value],
     }),
   },
 })

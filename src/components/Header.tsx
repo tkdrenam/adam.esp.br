@@ -10,6 +10,9 @@ export const Header = () => {
     <HeaderStyled>
       <nav className="nav">
         <Link href="/">
+          <a>Home</a>
+        </Link>
+        <Link href="/blog">
           <a>My Blog</a>
         </Link>
         <Link href="/about">
