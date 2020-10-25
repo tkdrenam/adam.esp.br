@@ -1,4 +1,5 @@
 import { createStyled } from '@stitches/react'
+import { reset } from '@/styles/reset'
 
 const theme = {
   radii: {
@@ -30,7 +31,7 @@ const theme = {
   },
 }
 
-export const { styled, css } = createStyled({
+const { styled, css } = createStyled({
   tokens: theme,
   breakpoints: {
     sm: (rule) => `@media (min-width: 640px) { ${rule} }`,
@@ -71,3 +72,7 @@ export const { styled, css } = createStyled({
     }),
   },
 })
+
+css.global(reset)
+
+export { css, styled }
