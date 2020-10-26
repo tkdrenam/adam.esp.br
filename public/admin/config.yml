@@ -1,13 +1,20 @@
 backend:
-  name: git-gateway
+  name: test-repo
   branch: master
+  commit_messages:
+    create: 'feat: create {{collection}} “{{slug}}”'
+    update: 'feat: update {{collection}} “{{slug}}”'
+    delete: 'feat: delete {{collection}} “{{slug}}”'
+    uploadMedia: '[skip ci] upload “{{path}}”'
+    deleteMedia: '[skip ci] delete “{{path}}”'
 
-media_folder: public/assets
-public_folder: assets
+media_folder: 'public/assets'
+public_folder: 'assets'
 
 collections:
   - name: 'pages'
     label: 'Páginas'
+    create: false
     delete: false
     editor:
       preview: false
@@ -19,34 +26,30 @@ collections:
           - { label: 'Título', name: 'title', widget: 'string' }
           - { label: 'Conteúdo', name: 'body', widget: 'markdown' }
 
-  - name: 'config'
-    label: 'Configurações'
+  - name: 'authors'
+    label: 'Autores'
+    label_singular: 'Autor'
+    create: true
     delete: false
     editor:
       preview: false
-    files:
-      - name: 'authors'
-        label: 'Autores'
-        file: 'content/config/authors.yml'
-        fields:
-          - name: 'authors'
-            label: 'Autores'
-            label_singular: 'Autor'
-            widget: list
-            fields:
-              - { label: 'Slug', name: 'slug', widget: 'string' }
-              - { label: 'Nome', name: 'name', widget: 'string' }
-      - name: 'tags'
-        label: 'Tags'
-        file: 'content/config/tags.yml'
-        fields:
-          - name: 'tags'
-            label: 'Tags'
-            label_singular: 'Tag'
-            widget: list
-            fields:
-              - { label: 'Slug', name: 'slug', widget: 'string' }
-              - { label: 'Tag', name: 'name', widget: 'string' }
+    folder: 'content/authors'
+    identifier_field: 'name'
+    fields:
+      - { label: 'Nome', name: 'name', widget: string }
+      # - { label: 'Foto', name: 'profile_picture', widget: image, allow_multiple: false }
+
+  - name: 'tags'
+    label: 'Tags'
+    label_singular: 'Tag'
+    create: true
+    delete: false
+    editor:
+      preview: false
+    folder: 'content/tags'
+    identifier_field: 'name'
+    fields:
+      - { label: 'Nome', name: 'name', widget: string }
 
   - name: 'blog'
     label: 'Posts'
@@ -69,40 +72,20 @@ collections:
           label: 'Autor',
           name: 'author',
           widget: 'relation',
-          collection: 'config',
-          file: 'authors',
-          search_fields: ['authors.*.name'],
-          display_fields: ['authors.*.name'],
-          value_field: 'authors.*.slug',
+          collection: 'authors',
+          valueField: 'name',
+          searchFields: ['name'],
+          displayFields: ['name'],
         }
       - {
           label: 'Tags',
           name: 'tags',
+          widget: 'relation',
+          collection: 'tags',
           multiple: true,
-          widget: 'relation',
-          collection: 'config',
-          file: 'tags',
-          search_fields: ['tags.*.name'],
-          display_fields: ['tags.*.name'],
-          value_field: 'tags.*.slug',
-        }
-      - {
-          label: 'Posts relacionados',
-          name: 'related_posts',
-          widget: 'relation',
           required: false,
-          multiple: true,
-          collection: 'post',
-          valueField: 'slug',
-          searchFields: ['title'],
-          displayFields: ['title'],
+          valueField: 'name',
+          searchFields: ['name'],
+          displayFields: ['name'],
         }
       - { label: 'Conteúdo', name: 'body', widget: 'markdown' }
-
-      # - name: 'tags'
-      #   label: 'Tags'
-      #   widget: list
-      #   fields:
-      #     - name: 'tag'
-      #       label: 'Tag'
-      #       widget: 'string'

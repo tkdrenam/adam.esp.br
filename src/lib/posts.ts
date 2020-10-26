@@ -1,4 +1,4 @@
-export type PostContent = {
+export type Post = {
   readonly slug: string
   readonly title: string
   readonly description: string
@@ -9,8 +9,8 @@ export type PostContent = {
   readonly body: string
 }
 
-export const getPosts = (): PostContent[] => {
+export const getPosts = () => {
   const resolve = require.context('../../content/posts', true, /\.md$/)
-  const posts = resolve.keys().map<{ attributes: PostContent }>(resolve)
-  return posts.map((post) => post.attributes)
+  const data = resolve.keys().map<{ attributes: Post }>(resolve)
+  return data.map((item) => item.attributes)
 }
