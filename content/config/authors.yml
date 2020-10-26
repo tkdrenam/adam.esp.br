@@ -1,3 +1,5 @@
 authors:
-  - slug: renam-restelatto
-    name: Renam Restelatto
+  - name: Renam Restelatto
+    slug: renam-restelatto
+  - name: Munir Ahmed
+    slug: munir-ahmed
