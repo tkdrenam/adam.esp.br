@@ -6,7 +6,7 @@ description: >-
   when an unknown printer took a galley of type and scrambled it to make a type
   specimen book.
 date: '2020-10-26'
-thumbnail: /assets/codengage-eclipse-wallpaper.png
+thumbnail: /assets/50589440_835636850103558_2816740686311718912_o.png
 author: Munir Ahmed
 tags:
   - Campeonato
