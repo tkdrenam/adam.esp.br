@@ -71,9 +71,9 @@ collections:
           widget: 'relation',
           collection: 'config',
           file: 'authors',
-          searchFields: ['authors.*.name'],
-          displayFields: ['authors.*.name'],
-          valueField: 'authors.*.slug',
+          search_fields: ['authors.*.name'],
+          display_fields: ['authors.*.name'],
+          value_field: 'authors.*.slug',
         }
       - {
           label: 'Tags',
@@ -88,9 +88,9 @@ collections:
               widget: 'relation',
               collection: 'meta',
               file: 'tags',
-              searchFields: ['tags.*.name'],
-              displayFields: ['tags.*.name'],
-              valueField: 'tags.*.slug',
+              search_fields: ['tags.*.name'],
+              display_fields: ['tags.*.name'],
+              value_field: 'tags.*.slug',
             },
         }
       - { label: 'Conteúdo', name: 'body', widget: 'markdown' }
