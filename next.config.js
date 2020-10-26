@@ -8,11 +8,18 @@ module.exports = {
       loader: 'frontmatter-markdown-loader',
       include: path.resolve(__dirname, 'content'),
       options: {
-        mode: [Mode.REACT],
+        mode: [
+          Mode.REACT,
+        ],
         react: {
           root: 'content',
         },
       },
+    })
+    config.module.rules.push({
+      test: /\.yml$/,
+      type: "json",
+      use: "yaml-loader",
     })
     return config
   },

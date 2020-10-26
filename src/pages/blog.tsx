@@ -1,7 +1,6 @@
-import { Layout } from '@/components/Layout'
-import { styled } from '@/styles'
 import { GetStaticProps } from 'next'
 import { Layout } from '@/components/Layout'
+import { getPosts } from '@/lib/posts'
 
 const HomePage = ({ posts }) => {
   return (
@@ -29,12 +28,12 @@ const HomePage = ({ posts }) => {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const resolve = require.context('../../content/posts', true, /\.md$/)
-  const posts: any = resolve.keys().map(resolve)
+  const posts = getPosts()
 
   return {
     props: {
-      posts: posts.map((post) => post.attributes),
+      posts
+      // posts: posts.map((post) => post.attributes),
     },
   }
 }
