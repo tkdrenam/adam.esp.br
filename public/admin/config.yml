@@ -77,21 +77,25 @@ collections:
         }
       - {
           label: 'Tags',
-          label_singular: 'Tag',
           name: 'tags',
-          widget: 'list',
-          summary: '{{fields.tag}}',
-          field:
-            {
-              label: 'Tag',
-              name: 'tag',
-              widget: 'relation',
-              collection: 'meta',
-              file: 'tags',
-              search_fields: ['tags.*.name'],
-              display_fields: ['tags.*.name'],
-              value_field: 'tags.*.slug',
-            },
+          multiple: true,
+          widget: 'relation',
+          collection: 'config',
+          file: 'tags',
+          search_fields: ['tags.*.name'],
+          display_fields: ['tags.*.name'],
+          value_field: 'tags.*.slug',
+        }
+      - {
+          label: 'Posts relacionados',
+          name: 'related_posts',
+          widget: 'relation',
+          required: false,
+          multiple: true,
+          collection: 'post',
+          valueField: 'slug',
+          searchFields: ['title'],
+          displayFields: ['title'],
         }
       - { label: 'Conteúdo', name: 'body', widget: 'markdown' }
 
