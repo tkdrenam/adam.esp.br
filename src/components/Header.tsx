@@ -1,24 +1,25 @@
 import Link from 'next/link'
-import { styled } from '@/styles'
-
-const HeaderStyled = styled('header', {
-  backgroundColor: 'gainsboro',
-})
 
 export const Header = () => {
   return (
-    <HeaderStyled>
-      <nav className="nav">
-        <Link href="/">
-          <a>Home</a>
-        </Link>
-        <Link href="/blog">
-          <a>My Blog</a>
-        </Link>
-        <Link href="/about">
-          <a>About</a>
-        </Link>
-      </nav>
-    </HeaderStyled>
+    <nav>
+      <ul className="flex justify-between items-center p-8">
+        <li>
+          <Link href="/">
+            <a className="text-blue-500 no-underline">Home</a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/blog">
+            <a className="text-blue-500 no-underline">Blog</a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/about">
+            <a className="text-blue-500 no-underline">About</a>
+          </Link>
+        </li>
+      </ul>
+    </nav>
   )
 }

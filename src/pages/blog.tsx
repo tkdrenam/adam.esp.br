@@ -1,14 +1,7 @@
 import { Layout } from '@/components/Layout'
 import { styled } from '@/styles'
 import { GetStaticProps } from 'next'
-
-const Post = styled('article', {
-  display: 'flex',
-
-  img: {
-    size: '$24'
-  }
-})
+import { Layout } from '@/components/Layout'
 
 const HomePage = ({ posts }) => {
   return (
@@ -16,9 +9,9 @@ const HomePage = ({ posts }) => {
       <div>
         {posts.map((post, index) => {
           return (
-            <Post key={index}>
+            <div key={index} className="flex">
               <div>
-                <img src={post.thumbnail} />
+                <img src={post.thumbnail} className="w-16 h-16" />
               </div>
 
               <div>
@@ -27,7 +20,7 @@ const HomePage = ({ posts }) => {
                 </h2>
                 <small>{post.description}</small>
               </div>
-            </Post>
+            </div>
           )
         })}
       </div>
