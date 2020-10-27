@@ -1,9 +1,9 @@
 import { GetStaticProps } from 'next'
+import ReactMarkdown from 'react-markdown'
 import { Layout } from '@/components/Layout'
 import { getTags } from '@/lib/tags'
 import { getPageBySlug } from '@/lib/pages'
 import { getAuthors } from '@/lib/authors'
-import ReactMarkdown from 'react-markdown'
 
 
 const HomePage = ({ tags = [], authors = [], title, body }) => {

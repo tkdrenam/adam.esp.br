@@ -18,7 +18,7 @@ const ContactPage = ({ address , phone, email, facebook, instagram}) => {
 
 export const getStaticProps: GetStaticProps = async () => {
   const page = getPageBySlug('contact')
-console.log(page)
+
   return {
     props: {
       ...page,

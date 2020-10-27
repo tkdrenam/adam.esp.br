@@ -1,4 +1,5 @@
 import { GetStaticProps } from 'next'
+import ReactMarkdown from 'react-markdown'
 import { Layout } from '@/components/Layout'
 import { getPageBySlug } from '@/lib/pages'
 
@@ -7,7 +8,9 @@ const HistoryPage = ({ title, body }) => {
     <Layout pageTitle="História do Clube">
       <h1>{title}</h1>
 
-      <article>{body}</article>
+      <article>
+        <ReactMarkdown source={body} />
+      </article>
     </Layout>
   )
 }
