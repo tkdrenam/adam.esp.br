@@ -14,7 +14,7 @@ const PostPage = ({ post }) => {
       </Link>
 
       <article>
-        <h1 className="font-bold text-xl">{post.title}</h1>
+        <h2 className="font-bold text-xl">{post.title}</h2>
 
         <p className="text-sm text-gray-500 mb-2">Por {post.author} | {post.date.split('-').reverse().join('/')}</p>
 

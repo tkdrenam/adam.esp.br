@@ -5,7 +5,7 @@ import { getPageBySlug } from '@/lib/pages'
 const ContactPage = ({ address , phone, email, facebook, instagram}) => {
   return (
     <Layout pageTitle="Contato">
-      <h1>Contato</h1>
+      <h2>Contato</h2>
 
       <div><strong>Endereço:</strong> <span>{address}</span></div>
       <div><strong>Telefone:</strong> <span>{phone}</span></div>

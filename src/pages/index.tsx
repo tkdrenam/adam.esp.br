@@ -10,7 +10,7 @@ const HomePage = ({ tags = [], authors = [], title, body }) => {
   return (
     <Layout pageTitle={title}>
       <article>
-        <h1>{title}</h1>
+        <h2>{title}</h2>
 
         <ReactMarkdown source={body} />
 

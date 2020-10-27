@@ -5,7 +5,7 @@ import { getPosts } from '@/lib/posts'
 
 const HomePage = ({ posts }) => {
   return (
-    <Layout pageTitle="Blog">
+    <Layout pageTitle="Notícias">
       <div>
         {posts.map((post) => {
           return (

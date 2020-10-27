@@ -6,7 +6,7 @@ import { getPageBySlug } from '@/lib/pages'
 const BoardPage = ({ title, body }) => {
   return (
     <Layout pageTitle="Diretoria">
-      <h1>{title}</h1>
+      <h2>{title}</h2>
 
       <article>
         <ReactMarkdown source={body} />

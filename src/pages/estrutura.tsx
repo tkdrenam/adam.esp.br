@@ -5,7 +5,7 @@ import { getPageBySlug } from '@/lib/pages'
 const StructurePage = ({ images }) => {
   return (
     <Layout pageTitle="Estrutura do Clube">
-      <h1>Estrutura</h1>
+      <h2>Estrutura</h2>
 
       <article className="flex">
         {images.map((image, index) => <img key={index} src={image} alt="Foto da estrutura" className="w-1/3" />)}
