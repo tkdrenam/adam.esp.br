@@ -9,10 +9,13 @@ export const Layout = ({ children, pageTitle }) => {
         <title>{pageTitle}</title>
         <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
       </Head>
-      <section className="layout">
+
+      <div className="container mx-auto">
         <Header />
-        <div className="content">{children}</div>
-      </section>
+        
+        <main>{children}</main>
+      </div>
+
       <footer>Built by me!</footer>
     </>
   )

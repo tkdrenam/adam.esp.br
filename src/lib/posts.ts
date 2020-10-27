@@ -1,3 +1,5 @@
+import { getContents, mapBySlug } from './utils'
+
 export type Post = {
   readonly slug: string
   readonly title: string
@@ -9,8 +11,11 @@ export type Post = {
   readonly body: string
 }
 
-export const getPosts = () => {
+export const getPosts = (): Post[] => {
   const resolve = require.context('../../content/posts', true, /\.md$/)
-  const data = resolve.keys().map<{ attributes: Post }>(resolve)
-  return data.map((item) => item.attributes)
+  return getContents<Post>(resolve)
 }
+
+const postsMap = mapBySlug(getPosts())
+
+export const getPostBySlug = (slug: string) => postsMap[slug]

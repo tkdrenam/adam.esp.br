@@ -7,6 +7,9 @@
 /* Stop purging. */
 
 /* Write your own custom component styles here */
+h2 {
+  @apply font-bold text-lg my-2;
+}
 
 /* Start purging... */
 @tailwind utilities;

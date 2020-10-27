@@ -1,9 +1,18 @@
+import { getContents, mapBySlug } from '@/lib/utils'
+
 export type Tag = {
+  readonly slug: string
   readonly name: string
 }
 
-export const getTags = () => {
+export const getTags = (): Tag[] => {
   const resolve = require.context('../../content/tags', true, /\.md$/)
-  const data = resolve.keys().map<{ attributes: Tag }>(resolve)
-  return data.map((item) => item.attributes)
+  return getContents<Tag>(resolve, ({ slug, name }) => ({
+    slug,
+    name,
+  }))
 }
+
+const tagsMap = mapBySlug(getTags())
+
+export const getTagBySlug = (slug: string) => tagsMap[slug]

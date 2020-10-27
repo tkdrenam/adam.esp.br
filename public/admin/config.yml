@@ -1,5 +1,5 @@
 backend:
-  name: git-gateway
+  name: test-repo
   branch: master
   commit_messages:
     create: 'feat: create {{collection}} “{{slug}}”'
@@ -25,6 +25,37 @@ collections:
         fields:
           - { label: 'Título', name: 'title', widget: 'string' }
           - { label: 'Conteúdo', name: 'body', widget: 'markdown' }
+      - name: 'history'
+        label: 'História'
+        file: 'content/pages/history.md'
+        fields:
+          - { label: 'Título', name: 'title', widget: 'string' }
+          - { label: 'Conteúdo', name: 'body', widget: 'markdown' }
+      - name: 'board'
+        label: 'Diretoria'
+        file: 'content/pages/board.md'
+        fields:
+          - { label: 'Título', name: 'title', widget: 'string' }
+          - { label: 'Conteúdo', name: 'body', widget: 'markdown' }
+      - name: 'structure'
+        label: 'Estrutura'
+        file: 'content/pages/structure.md'
+        fields:
+          - name: 'images'
+            label: 'Fotos'
+            widget: 'image'
+            media_library:
+              config:
+                multiple: true
+      - name: 'contact'
+        label: 'Contato'
+        file: 'content/pages/contact.md'
+        fields:
+          - { label: 'Endereço', name: 'address', widget: 'string' }
+          - { label: 'Telefone', name: 'phone', widget: 'string' }
+          - { label: 'E-mail', name: 'email', widget: 'string' }
+          - { label: 'Facebook', name: 'facebook', widget: 'string' }
+          - { label: 'Instagram', name: 'instagram', widget: 'string' }
 
   - name: 'authors'
     label: 'Autores'

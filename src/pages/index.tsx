@@ -1,18 +1,18 @@
 import { GetStaticProps } from 'next'
 import { Layout } from '@/components/Layout'
-import { attributes, react as HomeContent } from '../../content/pages/home.md'
 import { getTags } from '@/lib/tags'
+import { getPageBySlug } from '@/lib/pages'
 import { getAuthors } from '@/lib/authors'
+import ReactMarkdown from 'react-markdown'
 
-const HomePage = ({ tags, authors }) => {
-  const { title } = attributes
 
+const HomePage = ({ tags = [], authors = [], title, body }) => {
   return (
     <Layout pageTitle={title}>
       <article>
         <h1>{title}</h1>
 
-        <HomeContent />
+        <ReactMarkdown source={body} />
 
         <div>
           <strong>Tags</strong>
@@ -31,9 +31,11 @@ const HomePage = ({ tags, authors }) => {
 export const getStaticProps: GetStaticProps = async () => {
   const tags = getTags()
   const authors = getAuthors()
+  const page = getPageBySlug('home')
 
   return {
     props: {
+      ...page,
       tags,
       authors
     },

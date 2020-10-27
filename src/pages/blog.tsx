@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { GetStaticProps } from 'next'
 import { Layout } from '@/components/Layout'
 import { getPosts } from '@/lib/posts'
@@ -6,20 +7,22 @@ const HomePage = ({ posts }) => {
   return (
     <Layout pageTitle="Blog">
       <div>
-        {posts.map((post, index) => {
+        {posts.map((post) => {
           return (
-            <div key={index} className="flex">
-              <div>
-                <img src={post.thumbnail} className="w-16 h-16" />
-              </div>
+            <Link key={post.slug} href={`/blog/${post.slug}`}>
+              <a>
+                <div className="flex items-start">
+                  <div className="mr-4">
+                    <img src={post.thumbnail} className="w-24 h-24" />
+                  </div>
 
-              <div>
-                <h2>
-                  {post.title} - {post.author}
-                </h2>
-                <small>{post.description}</small>
-              </div>
-            </div>
+                  <div>
+                    <h2 className="mt-0">{post.title} - {post.author}</h2>
+                    <small>{post.description}</small>
+                  </div>
+                </div>
+              </a>
+            </Link>
           )
         })}
       </div>
