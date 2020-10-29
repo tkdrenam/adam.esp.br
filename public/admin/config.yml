@@ -1,6 +1,9 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: elsangedy/renamrestelatto
   branch: master
+  base_url: https://renamrestelatto.vercel.app
+  auth_endpoint: api/auth
   commit_messages:
     create: 'feat: create {{collection}} “{{slug}}”'
     update: 'feat: update {{collection}} “{{slug}}”'
