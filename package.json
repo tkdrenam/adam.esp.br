@@ -1,7 +1,6 @@
 {
   "name": "renamrestelatto.com",
   "version": "1.0.0",
-  "main": "index.js",
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
@@ -10,8 +9,7 @@
     "export": "npm run build && next export"
   },
   "dependencies": {
-    "gray-matter": "^4.0.2",
-    "next": "^9.5.5",
+    "next": "^10.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-markdown": "^5.0.2"
@@ -20,6 +18,7 @@
     "@types/node": "^14.14.2",
     "@types/react": "^16.9.53",
     "@types/webpack-env": "^1.15.3",
+    "gray-matter": "^4.0.2",
     "postcss-flexbugs-fixes": "^4.2.1",
     "postcss-preset-env": "^6.7.0",
     "raw-loader": "^4.0.2",
