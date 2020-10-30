@@ -27,18 +27,18 @@ export const Header: React.FC<Props> = ({ title, contact }) => {
           <div className="flex flex-col justify-between">
             <div className="lg:flex-1 flex flex-row justify-end pb-4 lg:pb-0">
               {contact.instagram && (
-                <a rel="nofollow" role="link" target="_blank" href={`https://www.instagram.com/${contact.instagram}`}>
-                  <img src="/icons/instagram.png" alt="Instagram" className="w-4 h-4" />
+                <a rel="noreferrer" role="link" target="_blank" href={`https://www.instagram.com/${contact.instagram}`}>
+                  <Image width="16" height="16" src="/icons/instagram.png" alt="Instagram" />
                 </a>
               )}
               {contact.facebook && (
-                <a rel="nofollow" role="link" target="_blank" href={`https://www.facebook.com/${contact.facebook}`}>
-                  <img src="/icons/facebook.png" alt="Facebook" className="w-4 h-4 mx-4" />
+                <a rel="noreferrer" role="link" target="_blank" href={`https://www.facebook.com/${contact.facebook}`}>
+                  <Image width="16" height="16" src="/icons/facebook.png" alt="Facebook" className="mx-4" />
                 </a>
               )}
               {contact.twitter && (
-                <a rel="nofollow" role="link" target="_blank" href={`https://www.twitter.com/${contact.twitter}`}>
-                  <img src="/icons/twitter.png" alt="Twitter" className="w-4 h-4" />
+                <a rel="noreferrer" role="link" target="_blank" href={`https://www.twitter.com/${contact.twitter}`}>
+                  <Image width="16" height="16" src="/icons/twitter.png" alt="Twitter" />
                 </a>
               )}
             </div>
