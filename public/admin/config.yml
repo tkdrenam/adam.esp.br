@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: Assoc-Duovizinhense-de-Artes-Marciais/adam.esp.br
+  repo: tkdrenam/adam.esp.br
   branch: master
   base_url: https://adam.esp.br
   auth_endpoint: api/auth
