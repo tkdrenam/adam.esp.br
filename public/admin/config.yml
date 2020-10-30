@@ -1,8 +1,8 @@
 backend:
   name: github
-  repo: elsangedy/renamrestelatto
+  repo: Assoc-Duovizinhense-de-Artes-Marciais/adam.esp.br
   branch: master
-  base_url: https://renamrestelatto.vercel.app
+  base_url: https://adam.esp.br
   auth_endpoint: api/auth
   commit_messages:
     create: 'feat: create {{collection}} “{{slug}}”'
