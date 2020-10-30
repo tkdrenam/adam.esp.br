@@ -3,10 +3,11 @@ import Image from 'next/image'
 import { GetStaticProps } from 'next'
 import { Layout } from '@/components/Layout'
 import { getPosts } from '@/lib/posts'
+import { getPageBySlug } from '@/lib/pages'
 
-const HomePage = ({ posts }) => {
+const HomePage = ({ contact, posts }) => {
   return (
-    <Layout pageTitle="Notícias">
+    <Layout title="Notícias" contact={contact}>
       <div>
         {posts.map((post) => {
           return (
@@ -18,7 +19,9 @@ const HomePage = ({ posts }) => {
                   </div>
 
                   <div className="flex-1">
-                    <h2 className="mt-0">{post.title} - {post.author}</h2>
+                    <h2 className="mt-0">
+                      {post.title} - {post.author}
+                    </h2>
                     <small>{post.description}</small>
                   </div>
                 </div>
@@ -32,12 +35,13 @@ const HomePage = ({ posts }) => {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
+  const contact = getPageBySlug('contact')
   const posts = getPosts()
 
   return {
     props: {
-      posts
-      // posts: posts.map((post) => post.attributes),
+      contact,
+      posts,
     },
   }
 }

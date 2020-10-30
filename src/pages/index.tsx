@@ -5,14 +5,13 @@ import { getTags } from '@/lib/tags'
 import { getPageBySlug } from '@/lib/pages'
 import { getAuthors } from '@/lib/authors'
 
-
-const HomePage = ({ tags = [], authors = [], title, body }) => {
+const HomePage = ({ contact, home, tags = [], authors = [] }) => {
   return (
-    <Layout pageTitle={title}>
+    <Layout title={home.title} contact={contact}>
       <article>
-        <h2>{title}</h2>
+        <h2>{home.title}</h2>
 
-        <ReactMarkdown source={body} />
+        <ReactMarkdown source={home.body} />
 
         <div>
           <strong>Tags</strong>
@@ -29,15 +28,17 @@ const HomePage = ({ tags = [], authors = [], title, body }) => {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
+  const contact = getPageBySlug('contact')
+  const home = getPageBySlug('home')
   const tags = getTags()
   const authors = getAuthors()
-  const page = getPageBySlug('home')
 
   return {
     props: {
-      ...page,
+      contact,
+      home,
       tags,
-      authors
+      authors,
     },
   }
 }

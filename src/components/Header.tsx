@@ -1,23 +1,41 @@
 import Link from 'next/link'
 
-export const Header = ({ title }) => {
+type Props = {
+  title: string
+  contact: {
+    instagram: string
+    facebook: string
+    twitter: string
+  }
+}
+
+export const Header: React.FC<Props> = ({ title, contact }) => {
   return (
-    <header style={{ height: 440, backgroundImage: 'url(/images/header.jpeg)' }} className="bg-blue-500 bg-center bg-cover bg-no-repeat">
+    <header
+      style={{ height: 440, backgroundImage: 'url(/images/header.jpeg)' }}
+      className="bg-blue-500 bg-center bg-cover bg-no-repeat"
+    >
       <div className="h-full flex flex-col justify-between bg-black bg-opacity-50">
         <div className="container mx-auto py-10">
           <div className="flex flex-row justify-between">
             <div />
 
             <div className="flex flex-row">
-              <a rel="nofollow" role="link" href="https://www.instagram.com/renamrestelatto">
-                <img src="/icons/instagram.png" alt="Instagram" className="w-6 h-6" />
-              </a>
-              <a rel="nofollow" role="link" href="https://www.facebook.com/renamrestelatto">
-                <img src="/icons/facebook.png" alt="Facebook" className="w-6 h-6 mx-4" />
-              </a>
-              <a rel="nofollow" role="link" href="https://www.twitter.com/renamrestelatto">
-                <img src="/icons/twitter.png" alt="Twitter" className="w-6 h-6" />
-              </a>
+              {contact.instagram && (
+                <a rel="nofollow" role="link" target="_blank" href={`https://www.instagram.com/${contact.instagram}`}>
+                  <img src="/icons/instagram.png" alt="Instagram" className="w-6 h-6" />
+                </a>
+              )}
+              {contact.facebook && (
+                <a rel="nofollow" role="link" target="_blank" href={`https://www.facebook.com/${contact.facebook}`}>
+                  <img src="/icons/facebook.png" alt="Facebook" className="w-6 h-6 mx-4" />
+                </a>
+              )}
+              {contact.twitter && (
+                <a rel="nofollow" role="link" target="_blank" href={`https://www.twitter.com/${contact.twitter}`}>
+                  <img src="/icons/twitter.png" alt="Twitter" className="w-6 h-6" />
+                </a>
+              )}
             </div>
           </div>
         </div>
@@ -43,7 +61,9 @@ export const Header = ({ title }) => {
               </li>
               <li className="h-full">
                 <Link href="#">
-                  <a className="h-full flex items-center px-8 text-white font-bold text-base uppercase">TRANSPARÊNCIA</a>
+                  <a className="h-full flex items-center px-8 text-white font-bold text-base uppercase">
+                    TRANSPARÊNCIA
+                  </a>
                 </Link>
               </li>
               <li className="h-full">
