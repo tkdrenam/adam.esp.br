@@ -55,6 +55,7 @@ collections:
           - { label: 'Endereço', name: 'address', widget: 'string' }
           - { label: 'Telefone', name: 'phone', widget: 'string' }
           - { label: 'E-mail', name: 'email', widget: 'string' }
+          - { label: 'Twitter', name: 'twitter', widget: 'string' }
           - { label: 'Facebook', name: 'facebook', widget: 'string' }
           - { label: 'Instagram', name: 'instagram', widget: 'string' }
 

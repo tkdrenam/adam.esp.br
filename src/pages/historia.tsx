@@ -3,24 +3,26 @@ import ReactMarkdown from 'react-markdown'
 import { Layout } from '@/components/Layout'
 import { getPageBySlug } from '@/lib/pages'
 
-const HistoryPage = ({ title, body }) => {
+const HistoryPage = ({ contact, history }) => {
   return (
-    <Layout pageTitle="História do Clube">
-      <h2>{title}</h2>
+    <Layout title="História do Clube" contact={contact}>
+      <h2>{history.title}</h2>
 
       <article>
-        <ReactMarkdown source={body} />
+        <ReactMarkdown source={history.body} />
       </article>
     </Layout>
   )
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const page = getPageBySlug('history')
+  const contact = getPageBySlug('contact')
+  const history = getPageBySlug('history')
 
   return {
     props: {
-      ...page,
+      contact,
+      history,
     },
   }
 }

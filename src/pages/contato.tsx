@@ -2,26 +2,26 @@ import { GetStaticProps } from 'next'
 import { Layout } from '@/components/Layout'
 import { getPageBySlug } from '@/lib/pages'
 
-const ContactPage = ({ address , phone, email, facebook, instagram}) => {
+const ContactPage = ({ contact }) => {
   return (
-    <Layout pageTitle="Contato">
+    <Layout title="Contato" contact={contact}>
       <h2>Contato</h2>
 
-      <div><strong>Endereço:</strong> <span>{address}</span></div>
-      <div><strong>Telefone:</strong> <span>{phone}</span></div>
-      <div><strong>E-mail:</strong> <span>{email}</span></div>
-      <div><strong>Facebook:</strong> <span>{facebook}</span></div>
-      <div><strong>Instagram:</strong> <span>{instagram}</span></div>
+      <div><strong>Endereço:</strong> <span>{contact.address}</span></div>
+      <div><strong>Telefone:</strong> <span>{contact.phone}</span></div>
+      <div><strong>E-mail:</strong> <span>{contact.email}</span></div>
+      <div><strong>Facebook:</strong> <span>{contact.facebook}</span></div>
+      <div><strong>Instagram:</strong> <span>{contact.instagram}</span></div>
     </Layout>
   )
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const page = getPageBySlug('contact')
+  const contact = getPageBySlug('contact')
 
   return {
     props: {
-      ...page,
+      contact,
     },
   }
 }
