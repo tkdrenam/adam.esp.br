@@ -1,20 +1,21 @@
 import { GetStaticProps } from 'next'
-import ReactMarkdown from 'react-markdown'
+// import ReactMarkdown from 'react-markdown'
 import { Layout } from '@/components/Layout'
 import { getPageBySlug } from '@/lib/pages'
 import { getPosts, Post } from '@/lib/posts'
 
 type Props = {
-  board: any
+  attendance: any
   contact: any
   lastTwoPosts: Post[]
 }
 
-const BoardPage: React.FC<Props> = ({ contact, lastTwoPosts, board }) => {
+const AttendancePage: React.FC<Props> = ({ contact, lastTwoPosts, attendance }) => {
   return (
-    <Layout title={board.title} contact={contact} posts={lastTwoPosts}>
+    <Layout title={attendance.title} contact={contact} posts={lastTwoPosts}>
       <article>
-        <ReactMarkdown source={board.body} />
+        {/* <ReactMarkdown source={attendance.body} /> */}
+        <h2 className="mb-40">Em construção</h2>
       </article>
     </Layout>
   )
@@ -23,15 +24,18 @@ const BoardPage: React.FC<Props> = ({ contact, lastTwoPosts, board }) => {
 export const getStaticProps: GetStaticProps = async () => {
   const lastTwoPosts = getPosts().splice(0, 2)
   const contact = getPageBySlug('contact')
-  const board = getPageBySlug('board')
+  // const attendance = getPageBySlug('attendance')
 
   return {
     props: {
       lastTwoPosts,
       contact,
-      board,
+      // attendance,
+      attendance: {
+        title: 'Atendimento'
+      },
     },
   }
 }
 
-export default BoardPage
+export default AttendancePage

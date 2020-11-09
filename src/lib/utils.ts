@@ -25,3 +25,5 @@ export const mapBySlug = <T extends Slugable>(data: T[]): { [key: string]: T } =
     }),
     {}
   )
+
+export const formatDate = (date: string) => date.split('-').reverse().join('/')

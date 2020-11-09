@@ -2,12 +2,17 @@ import { GetStaticProps } from 'next'
 import ReactMarkdown from 'react-markdown'
 import { Layout } from '@/components/Layout'
 import { getPageBySlug } from '@/lib/pages'
+import { getPosts, Post } from '@/lib/posts'
 
-const HistoryPage = ({ contact, history }) => {
+type Props = {
+  history: any
+  contact: any
+  lastTwoPosts: Post[]
+}
+
+const HistoryPage: React.FC<Props> = ({ contact, lastTwoPosts, history }) => {
   return (
-    <Layout title="História do Clube" contact={contact}>
-      <h2>{history.title}</h2>
-
+    <Layout title={history.title} contact={contact} posts={lastTwoPosts}>
       <article>
         <ReactMarkdown source={history.body} />
       </article>
@@ -16,11 +21,13 @@ const HistoryPage = ({ contact, history }) => {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
+  const lastTwoPosts = getPosts().splice(0, 2)
   const contact = getPageBySlug('contact')
   const history = getPageBySlug('history')
 
   return {
     props: {
+      lastTwoPosts,
       contact,
       history,
     },

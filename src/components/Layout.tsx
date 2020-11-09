@@ -1,7 +1,22 @@
 import Head from 'next/head'
 import { Header } from '@/components/Header'
+import { Footer } from '@/components/Footer'
+import { Post } from '@/lib/posts'
 
-export const Layout = ({ children, contact, title }) => {
+type Props = {
+  title: string
+  contact: {
+    email: string
+    phone: string
+    address: string
+    instagram: string
+    facebook: string
+    twitter: string
+  },
+  posts: Post[]
+}
+
+export const Layout: React.FC<Props> = ({ children, posts, contact, title }) => {
   return (
     <>
       <Head>
@@ -19,9 +34,9 @@ export const Layout = ({ children, contact, title }) => {
 
       <Header title={title} contact={contact} />
 
-      <main className="md:container md:mx-auto py-16">{children}</main>
+      <main className="container mx-auto py-16">{children}</main>
 
-      <footer>Built by me!</footer>
+      <Footer posts={posts} contact={contact} />
     </>
   )
 }

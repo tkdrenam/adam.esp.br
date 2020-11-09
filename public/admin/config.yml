@@ -26,28 +26,71 @@ collections:
         label: 'Home'
         file: 'content/pages/home.md'
         fields:
-          - { label: 'Título', name: 'title', widget: 'string' }
+          - { label: 'Título da página', name: 'title', widget: 'string' }
           - { label: 'Conteúdo', name: 'body', widget: 'markdown' }
       - name: 'history'
         label: 'História'
         file: 'content/pages/history.md'
         fields:
-          - { label: 'Título', name: 'title', widget: 'string' }
+          - { label: 'Título da página', name: 'title', widget: 'string' }
           - { label: 'Conteúdo', name: 'body', widget: 'markdown' }
-      - name: 'board'
-        label: 'Diretoria'
-        file: 'content/pages/board.md'
+      - name: 'championships'
+        label: 'Títulos'
+        file: 'content/pages/championships.md'
         fields:
-          - { label: 'Título', name: 'title', widget: 'string' }
+          - { label: 'Título da página', name: 'title', widget: 'string' }
           - { label: 'Conteúdo', name: 'body', widget: 'markdown' }
       - name: 'structure'
         label: 'Estrutura'
         file: 'content/pages/structure.md'
         fields:
+          - { label: 'Título da página', name: 'title', widget: 'string' }
           - name: 'images'
             label: 'Fotos'
             widget: 'list'
             field: { label: 'Foto', name: 'image', widget: 'image' }
+      - name: 'board'
+        label: 'Diretoria'
+        file: 'content/pages/board.md'
+        fields:
+          - { label: 'Título da página', name: 'title', widget: 'string' }
+          - { label: 'Conteúdo', name: 'body', widget: 'markdown' }
+      - name: 'muaythai'
+        label: 'Muaythai'
+        file: 'content/pages/muaythai.md'
+        fields:
+          - { label: 'Título da página', name: 'title', widget: 'string' }
+          - { label: 'Conteúdo', name: 'body', widget: 'markdown' }
+      - name: 'mma'
+        label: 'MMA'
+        file: 'content/pages/mma.md'
+        fields:
+          - { label: 'Título da página', name: 'title', widget: 'string' }
+          - { label: 'Conteúdo', name: 'body', widget: 'markdown' }
+      - name: 'jiujitsu'
+        label: 'Jiujitsu'
+        file: 'content/pages/jiujitsu.md'
+        fields:
+          - { label: 'Título da página', name: 'title', widget: 'string' }
+          - { label: 'Conteúdo', name: 'body', widget: 'markdown' }
+      - name: 'kickboxing'
+        label: 'Kickboxing'
+        file: 'content/pages/kickboxing.md'
+        fields:
+          - { label: 'Título da página', name: 'title', widget: 'string' }
+          - { label: 'Conteúdo', name: 'body', widget: 'markdown' }
+      - name: 'hapkido'
+        label: 'Hapkido'
+        file: 'content/pages/hapkido.md'
+        fields:
+          - { label: 'Título da página', name: 'title', widget: 'string' }
+          - { label: 'Conteúdo', name: 'body', widget: 'markdown' }
+      - name: 'taekwondo'
+        label: 'Taekwondo'
+        file: 'content/pages/taekwondo.md'
+        fields:
+          - { label: 'Título da página', name: 'title', widget: 'string' }
+          - { label: 'Conteúdo', name: 'body', widget: 'markdown' }
       - name: 'contact'
         label: 'Contato'
         file: 'content/pages/contact.md'
@@ -90,7 +133,7 @@ collections:
     create: true
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
     fields:
-      - { label: 'Título', name: 'title', widget: 'string' }
+      - { label: 'Título da notícia', name: 'title', widget: 'string' }
       - { label: 'Resumo', name: 'description', widget: 'string' }
       - {
           label: 'Data de publicação',

@@ -1,21 +1,21 @@
 import { GetStaticProps } from 'next'
+// import ReactMarkdown from 'react-markdown'
 import { Layout } from '@/components/Layout'
 import { getPageBySlug } from '@/lib/pages'
 import { getPosts, Post } from '@/lib/posts'
 
 type Props = {
-  structure: any
+  faq: any
   contact: any
   lastTwoPosts: Post[]
 }
 
-const StructurePage: React.FC<Props> = ({ contact, lastTwoPosts, structure }) => {
+const FAQPage: React.FC<Props> = ({ contact, lastTwoPosts, faq }) => {
   return (
-    <Layout title={structure.title} contact={contact} posts={lastTwoPosts}>
-      <article className="flex flex-col">
-        {structure.images.map((image, index) => (
-          <img key={index} src={image} alt="Foto da estrutura" />
-        ))}
+    <Layout title={faq.title} contact={contact} posts={lastTwoPosts}>
+      <article>
+        {/* <ReactMarkdown source={faq.body} /> */}
+        <h2 className="mb-40">Em construção</h2>
       </article>
     </Layout>
   )
@@ -24,15 +24,18 @@ const StructurePage: React.FC<Props> = ({ contact, lastTwoPosts, structure }) =>
 export const getStaticProps: GetStaticProps = async () => {
   const lastTwoPosts = getPosts().splice(0, 2)
   const contact = getPageBySlug('contact')
-  const structure = getPageBySlug('structure')
+  // const faq = getPageBySlug('faq')
 
   return {
     props: {
       lastTwoPosts,
       contact,
-      structure,
+      // faq,
+      faq: {
+        title: 'Perguntas e Respostas Frequentes'
+      },
     },
   }
 }
 
-export default StructurePage
+export default FAQPage
