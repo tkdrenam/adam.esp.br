@@ -2,15 +2,21 @@ import Link from 'next/link'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import ReactMarkdown from 'react-markdown'
 import { Layout } from '@/components/Layout'
-import { getPostBySlug, getPosts } from '@/lib/posts'
-import { getPageBySlug } from '@/lib/pages'
 import { formatDate } from '@/lib/utils'
+import { getPageBySlug } from '@/lib/pages'
+import { getPostBySlug, getPosts, Post } from '@/lib/posts'
 
-const PostPage = ({ contact, post }) => {
+type Props = {
+  post: Post
+  contact: any
+  lastTwoPosts: Post[]
+}
+
+const PostPage: React.FC<Props> = ({ contact, lastTwoPosts, post }) => {
   if (!post) return <></>
 
   return (
-    <Layout title={post.title} contact={contact}>
+    <Layout title={post.title} contact={contact} posts={lastTwoPosts}>
       <Link href="/blog">
         <a className="text-blue-500 underline">Back to blog</a>
       </Link>
@@ -47,11 +53,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const lastTwoPosts = getPosts().splice(0, 2)
   const contact = getPageBySlug('contact')
   const post = getPostBySlug(params.slug as string)
 
   return {
     props: {
+      lastTwoPosts,
       contact,
       post,
     },
