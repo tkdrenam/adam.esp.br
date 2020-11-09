@@ -1,21 +1,20 @@
 import { GetStaticProps } from 'next'
+import ReactMarkdown from 'react-markdown'
 import { Layout } from '@/components/Layout'
 import { getPageBySlug } from '@/lib/pages'
 import { getPosts, Post } from '@/lib/posts'
 
 type Props = {
-  structure: any
+  taekwondo: any
   contact: any
   lastTwoPosts: Post[]
 }
 
-const StructurePage: React.FC<Props> = ({ contact, lastTwoPosts, structure }) => {
+const TaekwondoPage: React.FC<Props> = ({ contact, lastTwoPosts, taekwondo }) => {
   return (
-    <Layout title={structure.title} contact={contact} posts={lastTwoPosts}>
-      <article className="flex flex-col">
-        {structure.images.map((image, index) => (
-          <img key={index} src={image} alt="Foto da estrutura" />
-        ))}
+    <Layout title={taekwondo.title} contact={contact} posts={lastTwoPosts}>
+      <article>
+        <ReactMarkdown source={taekwondo.body} />
       </article>
     </Layout>
   )
@@ -24,15 +23,15 @@ const StructurePage: React.FC<Props> = ({ contact, lastTwoPosts, structure }) =>
 export const getStaticProps: GetStaticProps = async () => {
   const lastTwoPosts = getPosts().splice(0, 2)
   const contact = getPageBySlug('contact')
-  const structure = getPageBySlug('structure')
+  const taekwondo = getPageBySlug('taekwondo')
 
   return {
     props: {
       lastTwoPosts,
       contact,
-      structure,
+      taekwondo,
     },
   }
 }
 
-export default StructurePage
+export default TaekwondoPage

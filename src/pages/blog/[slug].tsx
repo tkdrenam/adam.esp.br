@@ -4,6 +4,7 @@ import ReactMarkdown from 'react-markdown'
 import { Layout } from '@/components/Layout'
 import { getPostBySlug, getPosts } from '@/lib/posts'
 import { getPageBySlug } from '@/lib/pages'
+import { formatDate } from '@/lib/utils'
 
 const PostPage = ({ contact, post }) => {
   if (!post) return <></>
@@ -18,12 +19,12 @@ const PostPage = ({ contact, post }) => {
         <h2 className="font-bold text-xl">{post.title}</h2>
 
         <p className="text-sm text-gray-500 mb-2">
-          Por {post.author} | {post.date.split('-').reverse().join('/')}
+          Por {post.author} | {formatDate(post.date)}
         </p>
 
         <div>
           {post.tags.map((tag) => (
-            <small className="text-white bg-gray-700 p-1 mr-1">{tag}</small>
+            <small key={tag} className="text-white bg-gray-700 p-1 mr-1">{tag}</small>
           ))}
         </div>
 

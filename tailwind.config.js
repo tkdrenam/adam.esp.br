@@ -9,7 +9,17 @@ module.exports = {
   ],
   theme: {
     extend: {},
+    container: {
+      padding: {
+        default: '1rem',
+        sm: '2rem',
+        lg: '4rem',
+        xl: '5rem',
+      },
+    },
   },
-  variants: {},
+  variants: {
+    display: ['responsive', 'hover', 'focus', 'group-hover', 'group-focus']
+  },
   plugins: [],
 }
